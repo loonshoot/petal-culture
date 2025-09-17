@@ -5,67 +5,56 @@ import Button from '../ui/Button.astro';
 <section class="py-20 bg-stone-50">
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <!-- Image Placeholder -->
+      <!-- Emily's Photo -->
       <div class="relative">
-        <div class="aspect-[4/5] bg-gradient-to-br from-petal-cream to-petal-light rounded-lg overflow-hidden">
-          <div class="absolute inset-0 flex items-center justify-center text-stone-400">
-            <svg class="w-24 h-24 opacity-30" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
-            </svg>
-          </div>
+        <div class="aspect-[4/5] rounded-lg overflow-hidden">
+          <img
+            src="https://petal-culture.syd1.cdn.digitaloceanspaces.com/images/emily/emily-petal-culture-formal.png"
+            alt="Emily, founder of Petal Culture, floral designer with 15 years of experience"
+            class="w-full h-full object-cover"
+          />
         </div>
-        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-petal-eucalyptus rounded-full opacity-20 blur-2xl"></div>
+        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-petal-terracotta rounded-full opacity-20 blur-2xl"></div>
       </div>
 
       <!-- Content -->
       <div>
         <h2 class="font-display text-3xl md:text-5xl text-stone-800 mb-6">
           Meet Emily,<br />
-          <span class="text-petal-rose italic">Your Floral Artist</span>
+          <span class="text-petal-accent font-script text-4xl md:text-6xl">Your Floral Artist</span>
         </h2>
 
         <div class="space-y-4 font-body text-stone-600">
           <p>
-            With over a decade of experience creating breathtaking floral designs,
-            Emily founded Petal Culture with a simple mission: to bring your floral
-            dreams to life with artistry, passion, and personal touch.
+            I've been a florist for 15 years, working with couples, families, and businesses
+            to create flowers that feel personal. Every celebration has its own story, and
+            I love being the one to help bring it to life.
           </p>
 
           <p>
-            Having acquired 40 cherished clients from an established florist,
-            Emily brings not just her creative vision but also a deep understanding
-            of what makes each celebration unique and memorable.
-          </p>
-
-          <p>
-            Every arrangement is thoughtfully crafted using locally-sourced,
-            seasonal blooms, ensuring your florals are not only beautiful but
-            also sustainable and fresh.
+            My approach is down-to-earth, collaborative, and a little bit playful. I'll guide
+            you through the process and make sure you actually enjoy the journey along the way.
           </p>
         </div>
 
-        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 items-start">
           <Button href="/about" variant="primary" size="md">
-            Our Story
+            My Story
           </Button>
-          <Button href="/process" variant="outline" size="md">
-            Our Process
-          </Button>
+          <a href="/process" class="text-petal-primary hover:text-petal-charcoal transition-colors font-body underline decoration-1 underline-offset-4 py-3">
+            The Process
+          </a>
         </div>
 
         <!-- Stats -->
-        <div class="mt-12 grid grid-cols-3 gap-6">
+        <div class="mt-12 grid grid-cols-2 gap-6">
           <div>
-            <p class="font-display text-3xl text-petal-rose">200+</p>
-            <p class="font-body text-sm text-stone-600 uppercase tracking-wide">Weddings</p>
+            <p class="font-display text-3xl text-petal-forest">15</p>
+            <p class="font-body text-sm text-stone-600 uppercase tracking-wide">Years Experience</p>
           </div>
           <div>
-            <p class="font-display text-3xl text-petal-rose">10+</p>
-            <p class="font-body text-sm text-stone-600 uppercase tracking-wide">Years</p>
-          </div>
-          <div>
-            <p class="font-display text-3xl text-petal-rose">100%</p>
-            <p class="font-body text-sm text-stone-600 uppercase tracking-wide">Love</p>
+            <p class="font-display text-3xl text-petal-forest">Hundreds</p>
+            <p class="font-body text-sm text-stone-600 uppercase tracking-wide">Of Celebrations</p>
           </div>
         </div>
       </div>

@@ -18,20 +18,20 @@ export default {
 
     colors: {
       primary: {
-        rose: '#e11d48',      // Rose 600
-        blush: '#fda4af',     // Rose 300
-        petal: '#ffe4e6'      // Rose 100
-      },
-      neutral: {
-        cream: '#fef3c7',     // Amber 100
-        sage: '#86efac',      // Green 300
-        stone: '#f5f5f4',     // Stone 100
-        charcoal: '#44403c'   // Stone 700
+        forest: '#064e3b',    // Deep sophisticated green
+        eucalyptus: '#10b981', // Fresh eucalyptus
+        sage: '#6b7280'       // Cool gray-green
       },
       accent: {
-        gold: '#fbbf24',      // Amber 400
-        lavender: '#c084fc',  // Purple 400
-        eucalyptus: '#6ee7b7' // Emerald 300
+        terracotta: '#ea580c', // Premium terracotta
+        amber: '#f59e0b',     // Rich amber
+        peach: '#fed7aa'      // Soft peach
+      },
+      neutral: {
+        cream: '#fefdf8',     // Warm cream
+        stone: '#f5f5f4',     // Light stone
+        charcoal: '#374151',  // Deep charcoal
+        pearl: '#f8fafc'      // Pearl white
       }
     },
 

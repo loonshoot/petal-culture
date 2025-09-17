@@ -5,14 +5,20 @@ export default {
     extend: {
       colors: {
         'petal': {
-          rose: '#e11d48',
-          blush: '#fda4af',
-          light: '#ffe4e6',
-          cream: '#fef3c7',
-          sage: '#86efac',
-          gold: '#fbbf24',
-          lavender: '#c084fc',
-          eucalyptus: '#6ee7b7'
+          // Sophisticated greens
+          sage: '#6b7280',     // Cool gray-green
+          forest: '#064e3b',   // Deep forest green
+          eucalyptus: '#10b981', // Fresh eucalyptus
+          moss: '#059669',     // Rich moss green
+          // Premium oranges
+          terracotta: '#ea580c', // Warm terracotta
+          amber: '#f59e0b',    // Rich amber
+          peach: '#fed7aa',    // Soft peach
+          // Neutrals for premium feel
+          cream: '#fefdf8',    // Warm cream
+          stone: '#f5f5f4',   // Light stone
+          charcoal: '#374151', // Deep charcoal
+          pearl: '#f8fafc'    // Pearl white
         }
       },
       fontFamily: {

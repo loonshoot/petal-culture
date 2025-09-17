@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Button from '../components/ui/Button.astro';
 import ServiceCard from '../components/ui/ServiceCard.astro';
+import CTA from '../components/sections/CTA.astro';
 
 const weddingServices = {
   'Bridal Party': [
@@ -95,19 +96,5 @@ const weddingServices = {
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-20 bg-gradient-to-br from-petal-rose to-rose-700">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="font-display text-3xl md:text-5xl text-white mb-6">
-        Ready to Start Planning?
-      </h2>
-      <p class="font-body text-rose-100 max-w-2xl mx-auto mb-8">
-        Let's create the wedding florals of your dreams. Book a consultation
-        to begin your floral journey with Petal Culture.
-      </p>
-      <Button href="/contact" variant="secondary" size="lg">
-        Book Your Consultation
-      </Button>
-    </div>
-  </section>
+  <CTA />
 </Layout>

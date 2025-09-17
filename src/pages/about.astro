@@ -1,0 +1,218 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/ui/Button.astro';
+import CTA from '../components/sections/CTA.astro';
+---
+
+<Layout title="About Emily">
+  <!-- Hero Section -->
+  <section class="relative py-24 bg-gradient-to-br from-petal-cream via-white to-petal-pearl">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Emily's Photo -->
+        <div class="relative">
+          <div class="aspect-[4/5] rounded-lg overflow-hidden shadow-premium">
+            <img
+              src="https://petal-culture.syd1.cdn.digitaloceanspaces.com/images/emily/emily-petal-culture.jpg"
+              alt="Emily, founder of Petal Culture, professional floral designer"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <!-- Decorative elements -->
+          <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-petal-eucalyptus rounded-full opacity-20 blur-2xl"></div>
+          <div class="absolute -top-6 -left-6 w-24 h-24 bg-petal-terracotta rounded-full opacity-15 blur-xl"></div>
+        </div>
+
+        <!-- Intro Content -->
+        <div>
+          <h1 class="font-display text-4xl md:text-6xl text-petal-charcoal mb-6">
+            Meet Emily
+          </h1>
+          <p class="font-script text-2xl text-petal-accent mb-6">
+            "Flowers aren't just décor—they set the mood, tell a story, and create memories you'll carry forever."
+          </p>
+          <p class="font-body text-lg text-stone-600 leading-relaxed">
+            The heart and soul behind Petal Culture, bringing 15 years of passion,
+            creativity, and personal touch to every celebration.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Emily's Story -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-display text-3xl md:text-5xl text-petal-charcoal mb-12 text-center">
+          My Story
+        </h2>
+
+        <div class="space-y-8 font-body text-stone-600 leading-relaxed">
+          <p class="text-lg">
+            I've been a florist for 15 years, and in that time I've worked with hundreds of couples,
+            families, and businesses to create flowers that don't just look beautiful—they feel personal.
+            Every wedding, every celebration, every installation has its own story, and I love being
+            the one to help bring it to life.
+          </p>
+
+          <p>
+            Over the years, I've learned that flowers aren't just décor—they set the mood, they tell
+            a story, and they create memories you'll carry forever. I take inspiration from my clients,
+            the seasons, and the little details that make each celebration unique. No two designs are
+            ever the same, and that's exactly what keeps my creativity alive.
+          </p>
+
+          <p>
+            I'm fortunate to have formed a unique partnership with <a href="https://www.elderberryevents.com.au/" target="_blank" rel="noopener noreferrer" class="text-petal-primary hover:text-petal-charcoal transition-colors underline decoration-1 underline-offset-2">Elderberry Wedding and Event Hire</a>,
+            working together to support styling and florals for their customers' events. This partnership
+            allows both companies to do what they do best and provide memorable experiences—combining
+            Elderberry's experience and trusted name with my style and eye for detail.
+          </p>
+
+          <p>
+            Existing Elderberry customers should experience no difference, as I've been working closely
+            with Elderberry until recently and have a loving relationship with the Elderberry team.
+            It's been wonderful to continue these trusted relationships while bringing my own creative
+            vision to each celebration.
+          </p>
+
+          <p>
+            My approach is down-to-earth, collaborative, and a little bit playful. I believe that
+            choosing your wedding flowers should be fun, not stressful. I'll guide you through the
+            process, take care of all the details, and make sure you actually enjoy the journey along
+            the way. At the heart of it all, I care about creating something that feels like you—flowers
+            that reflect your style, your story, and your celebration perfectly.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy Section -->
+  <section class="py-20 bg-petal-cream/30">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="font-display text-3xl md:text-5xl text-petal-charcoal mb-12">
+          My Philosophy
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="p-6">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-petal-circle-pink flex items-center justify-center">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <h3 class="font-display text-xl text-petal-charcoal mb-3">Personal Connection</h3>
+            <p class="font-body text-stone-600">
+              Every design starts with understanding you. Your story, your style,
+              your vision—these are the foundations of truly personal florals.
+            </p>
+          </div>
+
+          <div class="p-6">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-petal-circle-olive flex items-center justify-center">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+            </div>
+            <h3 class="font-display text-xl text-petal-charcoal mb-3">Seasonal Beauty</h3>
+            <p class="font-body text-stone-600">
+              I believe in working with nature's rhythm, choosing flowers that are
+              fresh, local, and in season for the most beautiful and sustainable designs.
+            </p>
+          </div>
+
+          <div class="p-6">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-petal-circle-amber flex items-center justify-center">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1.5a1.5 1.5 0 011.5 1.5V12M9 10c0 .552-.448 1-1 1s-1-.448-1-1m0 0a1 1 0 01-1-1m1 1v1.5m2.5-1.5H9m1.5 0A1.5 1.5 0 0112 12M9 6h6m-6 3h6" />
+              </svg>
+            </div>
+            <h3 class="font-display text-xl text-petal-charcoal mb-3">Joyful Process</h3>
+            <p class="font-body text-stone-600">
+              Planning your flowers should be exciting, not stressful. I'm here to guide
+              you with patience, creativity, and a good dose of fun along the way.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Behind the Scenes -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-display text-3xl md:text-5xl text-petal-charcoal mb-12 text-center">
+          When I'm Not Arranging Flowers
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div class="space-y-6 font-body text-stone-600">
+            <p>
+              You'll often find me exploring local farmers markets at dawn, searching for
+              the perfect seasonal blooms and building relationships with the growers who
+              share my passion for beautiful, sustainable flowers.
+            </p>
+
+            <p>
+              I'm constantly learning and growing in my craft—whether it's taking workshops
+              on new techniques, studying the latest trends in sustainable floristry, or
+              simply observing how light plays with petals in my garden at different times of day.
+            </p>
+
+            <p>
+              When I need to recharge my creative batteries, I love hiking through bushland,
+              taking photographs of native flora, and spending quiet time in my own little
+              garden sanctuary where I grow herbs and experiment with unusual flower varieties.
+            </p>
+          </div>
+
+          <div class="relative">
+            <div class="aspect-square bg-gradient-to-br from-petal-stone to-petal-pearl rounded-lg overflow-hidden">
+              <div class="absolute inset-0 flex items-center justify-center text-stone-400">
+                <svg class="w-24 h-24 opacity-30" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="py-20 bg-petal-cream/30">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-display text-3xl text-center text-petal-charcoal mb-12">
+          A Little About My Journey
+        </h2>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div>
+            <p class="font-display text-4xl md:text-5xl text-petal-forest mb-2">15</p>
+            <p class="font-body text-sm uppercase tracking-wide text-stone-600">Years Experience</p>
+          </div>
+          <div>
+            <p class="font-display text-4xl md:text-5xl text-petal-forest mb-2">300+</p>
+            <p class="font-body text-sm uppercase tracking-wide text-stone-600">Celebrations</p>
+          </div>
+          <div>
+            <p class="font-display text-4xl md:text-5xl text-petal-forest mb-2">❤️</p>
+            <p class="font-body text-sm uppercase tracking-wide text-stone-600">Partnership</p>
+          </div>
+          <div>
+            <p class="font-display text-4xl md:text-5xl text-petal-forest mb-2">∞</p>
+            <p class="font-body text-sm uppercase tracking-wide text-stone-600">Creative Passion</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+</Layout>

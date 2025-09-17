@@ -2,8 +2,8 @@
 const navItems = [
   { href: '/', label: 'Home' },
   { href: '/weddings', label: 'Weddings' },
-  { href: '/events', label: 'Events' },
-  { href: '/gallery', label: 'Gallery' },
+  { href: '/lookbook', label: 'Look Book' },
+  { href: '/process', label: 'Process' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' }
 ];
@@ -14,9 +14,11 @@ const navItems = [
     <div class="flex items-center justify-between h-20">
       <!-- Logo -->
       <a href="/" class="flex items-center space-x-2">
-        <span class="text-2xl md:text-3xl font-display text-petal-rose">
-          Petal Culture
-        </span>
+        <img
+          src="https://petal-culture.syd1.cdn.digitaloceanspaces.com/images/logo/logo_rgb.png"
+          alt="Petal Culture - Artful Florals for Life's Beautiful Moments"
+          class="h-12 w-auto"
+        />
       </a>
 
       <!-- Desktop Navigation -->
@@ -24,14 +26,14 @@ const navItems = [
         {navItems.map((item) => (
           <a
             href={item.href}
-            class="text-stone-700 hover:text-petal-rose transition-colors font-body text-sm uppercase tracking-wide"
+            class="text-stone-700 hover:text-petal-forest transition-colors font-body text-sm uppercase tracking-wide"
           >
             {item.label}
           </a>
         ))}
         <a
           href="/contact"
-          class="ml-4 px-6 py-2 bg-petal-rose text-white rounded-full hover:bg-rose-700 transition-colors font-body text-sm uppercase tracking-wide"
+          class="ml-4 px-6 py-2 bg-petal-primary text-white border-2 border-petal-primary rounded-full hover:bg-transparent hover:text-petal-primary transition-colors font-body text-sm uppercase tracking-wide"
         >
           Book Consultation
         </a>
@@ -55,14 +57,14 @@ const navItems = [
         {navItems.map((item) => (
           <a
             href={item.href}
-            class="text-stone-700 hover:text-petal-rose transition-colors font-body py-2 border-b border-stone-100"
+            class="text-stone-700 hover:text-petal-forest transition-colors font-body py-2 border-b border-stone-100"
           >
             {item.label}
           </a>
         ))}
         <a
           href="/contact"
-          class="mt-4 px-6 py-3 bg-petal-rose text-white rounded-full hover:bg-rose-700 transition-colors font-body text-center"
+          class="mt-4 px-6 py-3 bg-petal-primary text-white border-2 border-petal-primary rounded-full hover:bg-transparent hover:text-petal-primary transition-colors font-body text-center"
         >
           Book Consultation
         </a>

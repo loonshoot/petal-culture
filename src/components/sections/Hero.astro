@@ -4,16 +4,16 @@ import Button from '../ui/Button.astro';
 
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
   <!-- Background Image Placeholder -->
-  <div class="absolute inset-0 bg-gradient-to-br from-petal-light via-white to-petal-cream opacity-50"></div>
+  <div class="absolute inset-0 bg-gradient-to-br from-petal-cream via-white to-petal-pearl opacity-50"></div>
 
   <!-- Decorative Elements -->
-  <div class="absolute top-10 right-10 w-64 h-64 bg-petal-blush rounded-full filter blur-3xl opacity-30 animate-pulse"></div>
-  <div class="absolute bottom-10 left-10 w-80 h-80 bg-petal-lavender rounded-full filter blur-3xl opacity-20 animate-pulse delay-1000"></div>
+  <div class="absolute top-10 right-10 w-64 h-64 bg-petal-eucalyptus rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
+  <div class="absolute bottom-10 left-10 w-80 h-80 bg-petal-terracotta rounded-full filter blur-3xl opacity-15 animate-pulse delay-1000"></div>
 
   <div class="relative z-10 container mx-auto px-4 text-center">
     <h1 class="font-display text-4xl md:text-6xl lg:text-7xl text-stone-800 mb-6 animate-fade-in">
       Artful Florals for<br />
-      <span class="text-petal-rose italic">Life's Beautiful Moments</span>
+      <span class="text-petal-accent font-script text-5xl md:text-7xl lg:text-8xl">Life's Beautiful Moments</span>
     </h1>
 
     <p class="font-body text-lg md:text-xl text-stone-600 max-w-2xl mx-auto mb-8 animate-slide-up">
@@ -21,21 +21,19 @@ import Button from '../ui/Button.astro';
       into stunning floral artistry. Each arrangement tells your unique love story.
     </p>
 
-    <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up delay-200">
-      <Button href="/weddings" variant="primary">
-        Explore Wedding Florals
-      </Button>
-      <Button href="/contact" variant="secondary">
-        Start Your Journey
+    <div class="flex justify-center animate-slide-up delay-200">
+      <Button href="/lookbook" variant="primary">
+        Browse Lookbook
       </Button>
     </div>
 
-    <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-      <svg class="w-6 h-6 text-stone-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-      </svg>
-    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
+    <svg class="w-6 h-6 text-stone-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
   </div>
 </section>
 

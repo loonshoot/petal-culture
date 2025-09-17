@@ -1,49 +1,30 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
-/* Custom global styles */
-:root {
-  scroll-behavior: smooth;
+@theme {
+  --color-petal-sage: #999469;
+  --color-petal-forest: #999469;
+  --color-petal-eucalyptus: #999469;
+  --color-petal-moss: #999469;
+  --color-petal-terracotta: #FCB043;
+  --color-petal-amber: #FCB043;
+  --color-petal-peach: #E9D0C4;
+  --color-petal-cream: #F4E8E1;
+  --color-petal-stone: #F4E8E1;
+  --color-petal-charcoal: #374151;
+  --color-petal-pearl: #f8fafc;
+  --color-petal-pink: #DC8D9B;
+  --color-petal-primary: #99996B;
+  --color-petal-accent: #99996B;
+  --color-petal-circle-pink: #DF929D;
+  --color-petal-circle-olive: #99996B;
+  --color-petal-circle-amber: #FCB040;
+
+  --font-family-display: "Playfair Display", serif;
+  --font-family-body: "Inter", sans-serif;
+  --font-family-accent: "Cormorant Garamond", serif;
+  --font-family-script: "Great Vibes", cursive;
 }
 
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Custom animations */
-.animate-on-scroll {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease-out;
-}
-
-.animate-on-scroll.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Custom focus styles */
-*:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(253, 164, 175, 0.5);
-}
-
-/* Custom selection */
-::selection {
-  background-color: #fda4af;
-  color: #44403c;
-}
-
-/* Mobile menu animation */
-.mobile-menu-enter {
-  animation: slideInRight 0.3s ease-out;
-}
-
-@keyframes slideInRight {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
+.font-script {
+  font-family: "Great Vibes", cursive;
 }
