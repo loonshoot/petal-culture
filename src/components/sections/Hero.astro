@@ -6,9 +6,19 @@ import Button from '../ui/Button.astro';
   <!-- Background Image Placeholder -->
   <div class="absolute inset-0 bg-gradient-to-br from-petal-cream via-white to-petal-pearl opacity-50"></div>
 
-  <!-- Decorative Elements -->
-  <div class="absolute top-10 right-10 w-64 h-64 bg-petal-eucalyptus rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
-  <div class="absolute bottom-10 left-10 w-80 h-80 bg-petal-terracotta rounded-full filter blur-3xl opacity-15 animate-pulse delay-1000"></div>
+  <!-- Decorative Flower Elements -->
+  <div class="absolute top-16 right-12 w-64 h-64 pulse-reveal filter blur-md">
+    <img src="https://petal-culture.syd1.cdn.digitaloceanspaces.com/images/art/flower.png" alt="" class="w-full h-full object-contain" />
+  </div>
+  <div class="absolute bottom-20 left-16 w-80 h-80 pulse-reveal delay-seq-2 filter blur-lg">
+    <img src="https://petal-culture.syd1.cdn.digitaloceanspaces.com/images/art/flower.png" alt="" class="w-full h-full object-contain" />
+  </div>
+  <div class="absolute top-1/3 left-8 w-48 h-48 pulse-reveal delay-seq-3 filter blur-md">
+    <img src="https://petal-culture.syd1.cdn.digitaloceanspaces.com/images/art/flower.png" alt="" class="w-full h-full object-contain" />
+  </div>
+  <div class="absolute bottom-1/4 right-6 w-56 h-56 pulse-reveal delay-seq-4 filter blur-lg">
+    <img src="https://petal-culture.syd1.cdn.digitaloceanspaces.com/images/art/flower.png" alt="" class="w-full h-full object-contain" />
+  </div>
 
   <div class="relative z-10 container mx-auto px-4 text-center">
     <h1 class="font-display text-4xl md:text-6xl lg:text-7xl text-stone-800 mb-6 animate-fade-in">
@@ -38,11 +48,51 @@ import Button from '../ui/Button.astro';
 </section>
 
 <style>
+  .delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  .delay-500 {
+    animation-delay: 0.5s;
+  }
+
   .delay-1000 {
     animation-delay: 1s;
   }
 
-  .delay-200 {
-    animation-delay: 0.2s;
+  .delay-1500 {
+    animation-delay: 1.5s;
+  }
+
+  .pulse-reveal {
+    animation: pulse-reveal 8s ease-in-out infinite;
+    opacity: 0;
+  }
+
+  .delay-seq-2 {
+    animation-delay: 2s;
+  }
+
+  .delay-seq-3 {
+    animation-delay: 4s;
+  }
+
+  .delay-seq-4 {
+    animation-delay: 6s;
+  }
+
+  @keyframes pulse-reveal {
+    0%, 87.5% {
+      opacity: 0;
+    }
+    12.5%, 37.5% {
+      opacity: 0.25;
+    }
+    25% {
+      opacity: 0.25;
+    }
+    50%, 100% {
+      opacity: 0;
+    }
   }
 </style>
