@@ -1,0 +1,29 @@
+---
+import Button from '../ui/Button.astro';
+---
+
+<section class="py-20 bg-gradient-to-br from-petal-rose to-rose-700">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="font-display text-3xl md:text-5xl text-white mb-6">
+      Let's Create Something Beautiful Together
+    </h2>
+
+    <p class="font-body text-rose-100 max-w-2xl mx-auto mb-8 text-lg">
+      Ready to bring your floral vision to life? Whether you're planning
+      an intimate celebration or a grand event, we're here to make it extraordinary.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <Button href="/contact" variant="secondary" size="lg">
+        Book Your Consultation
+      </Button>
+      <Button href="/gallery" variant="outline" size="lg" class="!text-white !border-white hover:!bg-white hover:!text-petal-rose">
+        View Our Work
+      </Button>
+    </div>
+
+    <p class="mt-8 font-body text-sm text-rose-200">
+      Currently booking for 2024/2025 weddings and events
+    </p>
+  </div>
+</section>

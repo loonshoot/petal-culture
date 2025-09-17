@@ -1,0 +1,49 @@
+@import 'tailwindcss';
+
+/* Custom global styles */
+:root {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom animations */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom focus styles */
+*:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(253, 164, 175, 0.5);
+}
+
+/* Custom selection */
+::selection {
+  background-color: #fda4af;
+  color: #44403c;
+}
+
+/* Mobile menu animation */
+.mobile-menu-enter {
+  animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

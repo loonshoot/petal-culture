@@ -1,0 +1,113 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/ui/Button.astro';
+import ServiceCard from '../components/ui/ServiceCard.astro';
+
+const weddingServices = {
+  'Bridal Party': [
+    { name: 'Bridal Bouquets', description: 'Stunning, personalized bouquets that reflect your style' },
+    { name: 'Bridesmaids Bouquets', description: 'Coordinated designs that complement your theme' },
+    { name: 'Buttonholes & Corsages', description: 'Elegant details for your wedding party' },
+    { name: 'Flower Girl Accessories', description: 'Adorable petals and crowns for little ones' }
+  ],
+  'Ceremony': [
+    { name: 'Altar Arrangements', description: 'Statement pieces that frame your vows' },
+    { name: 'Aisle Styling', description: 'Creating a magical pathway to "I do"' },
+    { name: 'Arch & Arbor Designs', description: 'Breathtaking backdrops for your ceremony' },
+    { name: 'Guest Seating Florals', description: 'Thoughtful touches for every seat' }
+  ],
+  'Reception': [
+    { name: 'Centerpieces', description: 'Conversation-starting table designs' },
+    { name: 'Head Table Styling', description: 'Show-stopping arrangements for your celebration' },
+    { name: 'Cake Flowers', description: 'Fresh blooms to adorn your wedding cake' },
+    { name: 'Venue Installations', description: 'Transform your space with floral art' }
+  ]
+};
+---
+
+<Layout title="Wedding Florals">
+  <!-- Hero Section -->
+  <section class="relative py-24 bg-gradient-to-br from-petal-light via-white to-petal-cream">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="font-display text-4xl md:text-6xl text-stone-800 mb-6">
+        Wedding Florals
+      </h1>
+      <p class="font-body text-lg text-stone-600 max-w-2xl mx-auto">
+        Every love story deserves extraordinary florals. From intimate ceremonies
+        to grand celebrations, we create bespoke designs that capture the essence
+        of your special day.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="py-20">
+    <div class="container mx-auto px-4">
+      {Object.entries(weddingServices).map(([category, services]) => (
+        <div class="mb-16">
+          <h2 class="font-display text-3xl text-stone-800 mb-8 text-center">
+            {category}
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {services.map((service) => (
+              <div class="bg-white border border-stone-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                <h3 class="font-display text-xl text-stone-800 mb-2">
+                  {service.name}
+                </h3>
+                <p class="font-body text-sm text-stone-600">
+                  {service.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="py-20 bg-stone-50">
+    <div class="container mx-auto px-4">
+      <h2 class="font-display text-3xl md:text-5xl text-stone-800 mb-12 text-center">
+        Our Wedding Process
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        {[
+          { step: '01', title: 'Consultation', description: 'We meet to discuss your vision, style, and budget' },
+          { step: '02', title: 'Design', description: 'Custom proposals with mood boards and flower selections' },
+          { step: '03', title: 'Refinement', description: 'Perfect every detail together until it\'s just right' },
+          { step: '04', title: 'Delivery', description: 'Flawless execution on your special day' }
+        ].map((item) => (
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-petal-rose text-white flex items-center justify-center font-display text-xl">
+              {item.step}
+            </div>
+            <h3 class="font-display text-xl text-stone-800 mb-2">
+              {item.title}
+            </h3>
+            <p class="font-body text-sm text-stone-600">
+              {item.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-gradient-to-br from-petal-rose to-rose-700">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="font-display text-3xl md:text-5xl text-white mb-6">
+        Ready to Start Planning?
+      </h2>
+      <p class="font-body text-rose-100 max-w-2xl mx-auto mb-8">
+        Let's create the wedding florals of your dreams. Book a consultation
+        to begin your floral journey with Petal Culture.
+      </p>
+      <Button href="/contact" variant="secondary" size="lg">
+        Book Your Consultation
+      </Button>
+    </div>
+  </section>
+</Layout>

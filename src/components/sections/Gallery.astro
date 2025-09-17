@@ -1,0 +1,58 @@
+---
+import Button from '../ui/Button.astro';
+
+const galleryItems = [
+  { id: 1, category: 'wedding', alt: 'Bridal bouquet' },
+  { id: 2, category: 'event', alt: 'Corporate centerpiece' },
+  { id: 3, category: 'wedding', alt: 'Ceremony arch' },
+  { id: 4, category: 'wedding', alt: 'Reception styling' },
+  { id: 5, category: 'event', alt: 'Birthday celebration' },
+  { id: 6, category: 'wedding', alt: 'Bridesmaids bouquets' }
+];
+---
+
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="font-display text-3xl md:text-5xl text-stone-800 mb-4">
+        Our Portfolio
+      </h2>
+      <p class="font-body text-stone-600 max-w-2xl mx-auto">
+        Explore our collection of bespoke floral designs, each telling a unique story
+        of love, celebration, and natural beauty.
+      </p>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {galleryItems.map((item) => (
+        <div class="group relative aspect-square bg-gradient-to-br from-petal-cream to-petal-light rounded-lg overflow-hidden cursor-pointer">
+          <!-- Placeholder for images -->
+          <div class="absolute inset-0 flex items-center justify-center">
+            <svg class="w-16 h-16 text-stone-300" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
+            </svg>
+          </div>
+
+          <!-- Hover Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-stone-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+            <div class="text-white">
+              <p class="font-body text-sm uppercase tracking-wide mb-1">
+                {item.category === 'wedding' ? 'Wedding' : 'Event'}
+              </p>
+              <p class="font-display text-lg">
+                {item.alt}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-12">
+      <Button href="/gallery" variant="primary">
+        View Full Gallery
+      </Button>
+    </div>
+  </div>
+</section>

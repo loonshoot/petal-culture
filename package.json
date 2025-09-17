@@ -1,0 +1,23 @@
+{
+  "name": "petal-culture",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "flow": "claude-flow",
+    "content:plan": "claude-flow sparc run content-creator 'Create wedding content plan'",
+    "design:component": "claude-flow sparc run designer 'Design new component'",
+    "brand:review": "claude-flow sparc run brand-manager 'Review brand consistency'"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.13",
+    "astro": "^5.13.7",
+    "tailwindcss": "^4.1.13"
+  },
+  "devDependencies": {
+    "claude-flow": "^2.0.0-alpha.108"
+  }
+}

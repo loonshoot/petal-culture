@@ -1,0 +1,90 @@
+---
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/weddings', label: 'Weddings' },
+  { href: '/events', label: 'Events' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' }
+];
+---
+
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+  <nav class="container mx-auto px-4">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center space-x-2">
+        <span class="text-2xl md:text-3xl font-display text-petal-rose">
+          Petal Culture
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class="text-stone-700 hover:text-petal-rose transition-colors font-body text-sm uppercase tracking-wide"
+          >
+            {item.label}
+          </a>
+        ))}
+        <a
+          href="/contact"
+          class="ml-4 px-6 py-2 bg-petal-rose text-white rounded-full hover:bg-rose-700 transition-colors font-body text-sm uppercase tracking-wide"
+        >
+          Book Consultation
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-toggle"
+        class="md:hidden p-2"
+        aria-label="Toggle mobile menu"
+      >
+        <svg class="w-6 h-6 text-stone-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 right-0 bg-white shadow-lg">
+      <div class="flex flex-col p-4 space-y-3">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class="text-stone-700 hover:text-petal-rose transition-colors font-body py-2 border-b border-stone-100"
+          >
+            {item.label}
+          </a>
+        ))}
+        <a
+          href="/contact"
+          class="mt-4 px-6 py-3 bg-petal-rose text-white rounded-full hover:bg-rose-700 transition-colors font-body text-center"
+        >
+          Book Consultation
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  toggle?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+    menu?.classList.toggle('mobile-menu-enter');
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    if (!toggle?.contains(target) && !menu?.contains(target)) {
+      menu?.classList.add('hidden');
+    }
+  });
+</script>

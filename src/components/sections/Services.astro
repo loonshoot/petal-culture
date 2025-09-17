@@ -1,0 +1,47 @@
+---
+import ServiceCard from '../ui/ServiceCard.astro';
+
+const services = [
+  {
+    title: 'Wedding Florals',
+    description: 'From intimate ceremonies to grand celebrations, we create bespoke floral designs that reflect your unique love story.',
+    features: ['Bridal Bouquets', 'Ceremony Styling', 'Reception Florals'],
+    href: '/weddings',
+    icon: 'wedding'
+  },
+  {
+    title: 'Event Styling',
+    description: 'Transform your corporate events and social gatherings with stunning floral installations and thoughtful design.',
+    features: ['Corporate Events', 'Birthday Parties', 'Special Occasions'],
+    href: '/events',
+    icon: 'event'
+  },
+  {
+    title: 'Seasonal Collections',
+    description: 'Celebrate the beauty of each season with locally-sourced blooms and sustainable floral practices.',
+    features: ['Spring Gardens', 'Summer Soirées', 'Autumn Harvests'],
+    href: '/gallery',
+    icon: 'seasonal'
+  }
+];
+---
+
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="font-display text-3xl md:text-5xl text-stone-800 mb-4">
+        Our Services
+      </h2>
+      <p class="font-body text-stone-600 max-w-2xl mx-auto">
+        Whether you're planning an intimate wedding or a grand corporate event,
+        we bring your floral vision to life with passion and precision.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {services.map((service) => (
+        <ServiceCard {...service} />
+      ))}
+    </div>
+  </div>
+</section>
