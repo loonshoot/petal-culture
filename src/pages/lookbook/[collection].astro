@@ -121,8 +121,139 @@ const { collection } = Astro.props;
     const modalImage = document.getElementById('modal-image');
     const closeButton = document.getElementById('close-modal');
     const imageItems = document.querySelectorAll('.image-item');
+    const gallery = document.querySelector('.grid');
 
-    // Open modal when clicking on an image
+    // Intelligent gap-filling layout function (keeps original sizes)
+    function optimizeMasonryLayout() {
+      if (!gallery) return;
+
+      const items = Array.from(gallery.children);
+      const styles = window.getComputedStyle(gallery);
+      const columns = parseInt(styles.gridTemplateColumns.split(' ').length);
+
+      // Reset any previous positioning
+      items.forEach(item => {
+        item.style.gridColumnStart = '';
+        item.style.gridColumnEnd = '';
+        item.style.gridRowStart = '';
+        item.style.gridRowEnd = '';
+      });
+
+      // Create a 2D grid to track occupied spaces
+      const gridMap = [];
+      const maxRows = Math.ceil(items.length * 2 / columns) + 10; // Dynamic estimate
+
+      // Initialize grid map
+      for (let row = 0; row < maxRows; row++) {
+        gridMap[row] = new Array(columns).fill(false);
+      }
+
+      // Sort items by size (larger items first for better packing)
+      const itemsWithSizes = items.map((item, index) => {
+        let colSpan = 1;
+        let rowSpan = 1;
+
+        // Determine size based on the pattern from the original code
+        if (index % 7 === 0) {
+          colSpan = 2;
+          rowSpan = 2;
+        } else if (index % 5 === 0) {
+          rowSpan = 2;
+        } else if (index % 3 === 0) {
+          colSpan = 2;
+        }
+
+        return { item, index, colSpan, rowSpan, size: colSpan * rowSpan };
+      }).sort((a, b) => b.size - a.size); // Larger items first
+
+      itemsWithSizes.forEach(({ item, index, colSpan, rowSpan }) => {
+        // Find the best position for this item
+        let placed = false;
+        let bestRow = 0;
+        let bestCol = 0;
+        let bestScore = Infinity;
+
+        // Try all possible positions and find the one that creates least fragmentation
+        for (let row = 0; row < maxRows - rowSpan + 1 && !placed; row++) {
+          for (let col = 0; col <= columns - colSpan; col++) {
+            // Check if this position is available
+            let canPlace = true;
+            for (let r = row; r < row + rowSpan && canPlace; r++) {
+              for (let c = col; c < col + colSpan && canPlace; c++) {
+                if (gridMap[r] && gridMap[r][c]) {
+                  canPlace = false;
+                }
+              }
+            }
+
+            if (canPlace) {
+              // Calculate score (prefer positions that minimize gaps)
+              const score = row * 10 + col; // Prefer top-left positions
+              if (score < bestScore) {
+                bestScore = score;
+                bestRow = row;
+                bestCol = col;
+                if (row === 0) placed = true; // Take first row immediately
+              }
+            }
+          }
+        }
+
+        // Place the item at the best position found
+        if (bestScore < Infinity) {
+          // Mark the grid spaces as occupied
+          for (let r = bestRow; r < bestRow + rowSpan; r++) {
+            for (let c = bestCol; c < bestCol + colSpan; c++) {
+              if (gridMap[r]) gridMap[r][c] = true;
+            }
+          }
+
+          // Update CSS classes to maintain the size but set position
+          item.className = item.className.replace(/col-span-\d+|row-span-\d+/g, '');
+
+          if (colSpan === 2) item.classList.add('col-span-2');
+          if (rowSpan === 2) item.classList.add('row-span-2');
+
+          // Set grid position using CSS custom properties for more precise control
+          item.style.gridColumnStart = bestCol + 1;
+          item.style.gridColumnEnd = bestCol + 1 + colSpan;
+          item.style.gridRowStart = bestRow + 1;
+          item.style.gridRowEnd = bestRow + 1 + rowSpan;
+        }
+      });
+    }
+
+    // Run layout optimization after images load
+    let imagesLoaded = 0;
+    const totalImages = imageItems.length;
+
+    imageItems.forEach((item) => {
+      const img = item.querySelector('img');
+      if (img) {
+        if (img.complete) {
+          imagesLoaded++;
+        } else {
+          img.addEventListener('load', () => {
+            imagesLoaded++;
+            if (imagesLoaded === totalImages) {
+              setTimeout(optimizeMasonryLayout, 100);
+            }
+          });
+        }
+      }
+    });
+
+    // If all images are already loaded
+    if (imagesLoaded === totalImages) {
+      setTimeout(optimizeMasonryLayout, 100);
+    }
+
+    // Re-optimize on window resize
+    window.addEventListener('resize', () => {
+      setTimeout(optimizeMasonryLayout, 100);
+    });
+
+    // Modal functionality
     imageItems.forEach((item, index) => {
       item.addEventListener('click', () => {
         const imageSrc = item.getAttribute('data-image');
