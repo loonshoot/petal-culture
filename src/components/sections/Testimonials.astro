@@ -1,19 +1,19 @@
 ---
 const testimonials = [
   {
-    quote: "Emily's vision brought our wedding to life in ways we never imagined. Every detail was perfect, and our guests are still talking about the stunning florals months later.",
-    author: "Sarah & Michael",
-    event: "Spring Wedding 2024"
+    quote: "Emily of Petal Culture went above and beyond to create the most breathtaking arrangements for our housewarming party. She listened carefully to what I envisioned and transformed it into something even more magical. The flowers were vibrant and perfectly styled – I received so many compliments from guests about how beautiful they were. Her passion and creativity shine through every detail. I wouldn't hesitate to recommend her to anyone wanting truly special florals.",
+    author: "Leanne Neeland",
+    event: "East Melbourne"
   },
   {
-    quote: "Working with Petal Culture was an absolute dream. Emily understood our vision immediately and created arrangements that exceeded all expectations.",
-    author: "Jessica Chen",
-    event: "Corporate Launch Event"
+    quote: "Emily absolutely exceeded all expectations with our wedding flowers. Walking down the aisle with the bouquet she designed felt so special – it was everything I had dreamed of and more. The reception looked stunning, and the flowers tied the whole day together perfectly. She made the process so easy and stress-free. Forever grateful!",
+    author: "Rebecca Barber",
+    event: "Ballarat"
   },
   {
-    quote: "The attention to detail and personal touch Emily brings to every arrangement is remarkable. She truly cares about making your day special.",
-    author: "Amanda & Tom",
-    event: "Garden Wedding 2024"
+    quote: "Our wedding flowers were absolutely perfect – fresh, stylish, and full of love. Thank you, Em for helping us make our day unforgettable!",
+    author: "Ashley & Matt",
+    event: "Geelong"
   }
 ];
 ---
@@ -30,27 +30,50 @@ const testimonials = [
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {testimonials.map((testimonial) => (
-        <div class="bg-white rounded-lg p-8 shadow-sm hover:shadow-lg transition-shadow">
-          <svg class="w-8 h-8 text-petal-rose/30 mb-4" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-          </svg>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+      <!-- Leanne's testimonial - takes 4 columns on left -->
+      <div class="md:col-span-4 bg-white rounded-lg p-8 shadow-sm hover:shadow-lg transition-shadow">
+        <svg class="w-8 h-8 text-petal-rose/30 mb-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+        </svg>
 
-          <p class="font-body text-stone-600 mb-6 italic">
-            "{testimonial.quote}"
+        <p class="font-body text-stone-600 mb-6 italic">
+          "{testimonials[0].quote}"
+        </p>
+
+        <div class="border-t border-stone-100 pt-4">
+          <p class="font-display text-stone-800">
+            {testimonials[0].author}
           </p>
-
-          <div class="border-t border-stone-100 pt-4">
-            <p class="font-display text-stone-800">
-              {testimonial.author}
-            </p>
-            <p class="font-body text-sm text-stone-500">
-              {testimonial.event}
-            </p>
-          </div>
+          <p class="font-body text-sm text-stone-500">
+            {testimonials[0].event}
+          </p>
         </div>
-      ))}
+      </div>
+
+      <!-- Right column with two stacked testimonials - takes 8 columns -->
+      <div class="md:col-span-8 flex flex-col gap-8">
+        {testimonials.slice(1).map((testimonial) => (
+          <div class="bg-white rounded-lg p-8 shadow-sm hover:shadow-lg transition-shadow">
+            <svg class="w-8 h-8 text-petal-rose/30 mb-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+
+            <p class="font-body text-stone-600 mb-6 italic">
+              "{testimonial.quote}"
+            </p>
+
+            <div class="border-t border-stone-100 pt-4">
+              <p class="font-display text-stone-800">
+                {testimonial.author}
+              </p>
+              <p class="font-body text-sm text-stone-500">
+                {testimonial.event}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 </section>
