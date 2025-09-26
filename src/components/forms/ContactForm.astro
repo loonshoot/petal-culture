@@ -1,0 +1,177 @@
+---
+// ContactForm.astro - Formspree integration for Petal Culture
+---
+
+<form
+  action="https://formspree.io/f/xwprpjlr"
+  method="POST"
+  id="contact-form"
+  class="space-y-4"
+>
+  <!-- Name Field -->
+  <div>
+    <label for="name" class="block font-body text-sm font-medium text-petal-charcoal mb-2">
+      Full Name *
+    </label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      required
+      class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-petal-rose focus:border-petal-rose transition-colors font-body"
+      placeholder="Your full name"
+    />
+  </div>
+
+  <!-- Email Field -->
+  <div>
+    <label for="email" class="block font-body text-sm font-medium text-petal-charcoal mb-2">
+      Email Address *
+    </label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-petal-rose focus:border-petal-rose transition-colors font-body"
+      placeholder="your@email.com"
+    />
+  </div>
+
+  <!-- Phone Field -->
+  <div>
+    <label for="phone" class="block font-body text-sm font-medium text-petal-charcoal mb-2">
+      Phone Number
+    </label>
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-petal-rose focus:border-petal-rose transition-colors font-body"
+      placeholder="Your phone number"
+    />
+  </div>
+
+  <!-- Event Date Field -->
+  <div>
+    <label for="event-date" class="block font-body text-sm font-medium text-petal-charcoal mb-2">
+      Event Date
+    </label>
+    <input
+      type="date"
+      id="event-date"
+      name="event-date"
+      class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-petal-rose focus:border-petal-rose transition-colors font-body"
+    />
+  </div>
+
+  <!-- Event Type Field -->
+  <div>
+    <label for="event-type" class="block font-body text-sm font-medium text-petal-charcoal mb-2">
+      Event Type
+    </label>
+    <select
+      id="event-type"
+      name="event-type"
+      class="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-petal-rose focus:border-petal-rose transition-colors font-body bg-white"
+    >
+      <option value="">Select your event type</option>
+      <option value="wedding">Wedding</option>
+      <option value="engagement">Engagement Party</option>
+      <option value="corporate">Corporate Event</option>
+      <option value="birthday">Birthday Celebration</option>
+      <option value="anniversary">Anniversary</option>
+      <option value="other">Other</option>
+    </select>
+  </div>
+
+  <!-- Budget Field -->
+  <div>
+    <label for="budget" class="block font-body text-sm font-medium text-petal-charcoal mb-2">
+      Estimated Budget
+    </label>
+    <select
+      id="budget"
+      name="budget"
+      class="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-petal-rose focus:border-petal-rose transition-colors font-body bg-white"
+    >
+      <option value="">Select your budget range</option>
+      <option value="under-1000">Under $1,000</option>
+      <option value="1000-2500">$1,000 - $2,500</option>
+      <option value="2500-5000">$2,500 - $5,000</option>
+      <option value="5000-10000">$5,000 - $10,000</option>
+      <option value="10000-plus">$10,000+</option>
+    </select>
+  </div>
+
+  <!-- Message Field -->
+  <div>
+    <label for="message" class="block font-body text-sm font-medium text-petal-charcoal mb-2">
+      Tell us about your vision *
+    </label>
+    <textarea
+      id="message"
+      name="message"
+      rows="4"
+      required
+      class="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-petal-rose focus:border-petal-rose transition-colors font-body resize-vertical"
+      placeholder="Share your floral vision, style preferences, venue details, and any other information that will help us create something beautiful for your special day..."
+    ></textarea>
+  </div>
+
+  <!-- How did you hear about us -->
+  <div>
+    <label for="referral" class="block font-body text-sm font-medium text-petal-charcoal mb-2">
+      How did you hear about us?
+    </label>
+    <select
+      id="referral"
+      name="referral"
+      class="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-petal-rose focus:border-petal-rose transition-colors font-body bg-white"
+    >
+      <option value="">Select one</option>
+      <option value="google">Google Search</option>
+      <option value="instagram">Instagram</option>
+      <option value="facebook">Facebook</option>
+      <option value="referral">Friend/Family Referral</option>
+      <option value="venue">Wedding Venue</option>
+      <option value="photographer">Photographer</option>
+      <option value="wedding-fair">Wedding Fair/Expo</option>
+      <option value="other">Other</option>
+    </select>
+  </div>
+
+  <!-- Hidden honeypot field for spam protection -->
+  <input type="text" name="_gotcha" style="display:none" />
+
+  <!-- Submit Button -->
+  <div class="pt-2">
+    <button
+      type="submit"
+      id="submit-btn"
+      class="w-full bg-petal-primary text-white px-8 py-3 rounded-full hover:bg-petal-primary/90 focus:ring-2 focus:ring-petal-primary focus:ring-offset-2 transition-all duration-300 font-body font-medium uppercase tracking-wide disabled:opacity-50 disabled:cursor-not-allowed"
+    >
+      <span id="submit-text">Send Your Message</span>
+      <span id="submit-loading" class="hidden">Sending...</span>
+    </button>
+  </div>
+
+</form>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+    const submitText = document.getElementById('submit-text') as HTMLElement;
+    const submitLoading = document.getElementById('submit-loading') as HTMLElement;
+
+    if (!form) return;
+
+    form.addEventListener('submit', () => {
+      // Show loading state during form submission
+      submitBtn.disabled = true;
+      submitText.classList.add('hidden');
+      submitLoading.classList.remove('hidden');
+    });
+  });
+</script>

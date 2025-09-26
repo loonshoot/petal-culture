@@ -1,0 +1,170 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTALookbook from '../../components/sections/CTALookbook.astro';
+import { lookbookCollections } from '../../data/lookbook.js';
+
+export async function getStaticPaths() {
+  return lookbookCollections.map((collection) => ({
+    params: { collection: collection.id },
+    props: { collection },
+  }));
+}
+
+const { collection } = Astro.props;
+---
+
+<Layout title={`${collection.title} - Look Book`}>
+  <!-- Hero Section -->
+  <section class="relative py-24 bg-gradient-to-br from-petal-cream via-white to-petal-pearl">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="font-display text-4xl md:text-6xl text-petal-charcoal mb-4">
+        {collection.title}
+      </h1>
+      <p class="font-body text-xl text-stone-600 max-w-2xl mx-auto leading-relaxed">
+        {collection.description}
+      </p>
+    </div>
+  </section>
+
+  <!-- Back to Look Book Button (Fixed Position) -->
+  <div class="fixed top-24 left-4 z-50">
+    <a
+      href="/lookbook"
+      class="group flex items-center gap-2 bg-white/90 backdrop-blur-sm text-petal-charcoal px-4 py-2 rounded-full shadow-lg hover:shadow-xl hover:bg-white transition-all duration-300 border border-petal-stone/20"
+    >
+      <svg class="w-5 h-5 transition-transform duration-200 group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+      <span class="font-body text-sm">Back to Look Book</span>
+    </a>
+  </div>
+
+  <!-- Gallery Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <!-- Mosaic Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[200px]">
+        {collection.galleryImages.map((image, index) => (
+          <div
+            class={`cursor-pointer group image-item relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-petal-stone to-petal-pearl ${
+              index % 7 === 0 ? 'col-span-2 row-span-2' :
+              index % 5 === 0 ? 'row-span-2' :
+              index % 3 === 0 ? 'col-span-2' : ''
+            }`}
+            data-image={image}
+            data-index={index}
+          >
+            <img
+              src={image}
+              alt={`${collection.title} - Image ${index + 1}`}
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              loading="lazy"
+            />
+            <!-- Hover overlay -->
+            <div class="absolute inset-0 bg-petal-charcoal/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <div class="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center">
+                <svg class="w-6 h-6 text-petal-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Full Width Image Modal -->
+  <div id="image-modal" class="fixed inset-0 bg-black/90 z-50 hidden flex items-center justify-center p-4">
+    <div class="relative max-w-7xl max-h-full">
+      <!-- Close Button -->
+      <button
+        id="close-modal"
+        class="absolute top-4 right-4 z-60 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors duration-200 shadow-lg"
+        aria-label="Close image"
+      >
+        <svg class="w-6 h-6 text-petal-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Modal Image -->
+      <img
+        id="modal-image"
+        src=""
+        alt=""
+        class="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+      />
+    </div>
+  </div>
+
+  <CTALookbook />
+</Layout>
+
+<style>
+  /* Ensure images maintain aspect ratio in mosaic grid */
+  .image-item img {
+    object-position: center;
+  }
+
+  /* Custom grid responsive behavior */
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('image-modal');
+    const modalImage = document.getElementById('modal-image');
+    const closeButton = document.getElementById('close-modal');
+    const imageItems = document.querySelectorAll('.image-item');
+
+    // Open modal when clicking on an image
+    imageItems.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        const imageSrc = item.getAttribute('data-image');
+        const imageIndex = item.getAttribute('data-index');
+
+        if (modal && modalImage) {
+          modalImage.src = imageSrc;
+          modalImage.alt = `Gallery image ${parseInt(imageIndex) + 1}`;
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    // Close modal when clicking close button
+    if (closeButton && modal) {
+      closeButton.addEventListener('click', () => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = 'auto';
+      });
+    }
+
+    // Close modal when clicking outside the image
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+          document.body.style.overflow = 'auto';
+        }
+      });
+    }
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = 'auto';
+      }
+    });
+  });
+</script>

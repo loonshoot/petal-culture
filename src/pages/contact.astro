@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Button from '../components/ui/Button.astro';
+import ContactForm from '../components/forms/ContactForm.astro';
 ---
 
 <Layout title="Contact">
@@ -22,96 +22,7 @@ import Button from '../components/ui/Button.astro';
               Start Your Journey
             </h2>
 
-            <form class="space-y-6">
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label class="block font-body text-sm text-stone-700 mb-2">
-                    First Name *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-petal-forest/50"
-                  />
-                </div>
-                <div>
-                  <label class="block font-body text-sm text-stone-700 mb-2">
-                    Last Name *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-petal-forest/50"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label class="block font-body text-sm text-stone-700 mb-2">
-                  Email *
-                </label>
-                <input
-                  type="email"
-                  required
-                  class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-petal-forest/50"
-                />
-              </div>
-
-              <div>
-                <label class="block font-body text-sm text-stone-700 mb-2">
-                  Phone
-                </label>
-                <input
-                  type="tel"
-                  class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-petal-forest/50"
-                />
-              </div>
-
-              <div>
-                <label class="block font-body text-sm text-stone-700 mb-2">
-                  Event Type *
-                </label>
-                <select
-                  required
-                  class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-petal-forest/50"
-                >
-                  <option value="">Select an option</option>
-                  <option value="wedding">Wedding</option>
-                  <option value="corporate">Corporate Event</option>
-                  <option value="birthday">Birthday</option>
-                  <option value="anniversary">Anniversary</option>
-                  <option value="other">Other Celebration</option>
-                </select>
-              </div>
-
-              <div>
-                <label class="block font-body text-sm text-stone-700 mb-2">
-                  Event Date
-                </label>
-                <input
-                  type="date"
-                  class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-petal-forest/50"
-                />
-              </div>
-
-              <div>
-                <label class="block font-body text-sm text-stone-700 mb-2">
-                  Tell Us About Your Vision
-                </label>
-                <textarea
-                  rows="4"
-                  class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-petal-forest/50"
-                  placeholder="Share your ideas, color preferences, style inspiration..."
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                class="w-full bg-petal-forest text-white font-body uppercase tracking-wide py-3 px-6 rounded-full hover:bg-green-900 transition-colors"
-              >
-                Send Message
-              </button>
-            </form>
+            <ContactForm />
           </div>
 
           <!-- Contact Info -->
@@ -127,8 +38,8 @@ import Button from '../components/ui/Button.astro';
                   </svg>
                   <div>
                     <p class="font-semibold">Email</p>
-                    <a href="mailto:hello@petalculture.com" class="hover:text-petal-forest transition-colors">
-                      hello@petalculture.com
+                    <a href="mailto:hello@petalculture.com.au" class="hover:text-petal-forest transition-colors">
+                      hello@petalculture.com.au
                     </a>
                   </div>
                 </div>

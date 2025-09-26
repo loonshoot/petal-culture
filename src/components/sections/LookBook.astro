@@ -1,56 +1,6 @@
 ---
 import Button from '../ui/Button.astro';
-
-const weddings = [
-  {
-    id: 1,
-    name: "Lisa's Wedding",
-    style: "Modern Australia",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Native eucalyptus branches frame the ceremony space.",
-    image: "/placeholder-1.jpg",
-    tags: ["Modern", "Eucalyptus", "Minimalist"]
-  },
-  {
-    id: 2,
-    name: "Sarah & Tom's Day",
-    style: "Garden Romance",
-    description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Delicate peonies and garden roses cascade in romantic abundance throughout the venue.",
-    image: "/placeholder-2.jpg",
-    tags: ["Garden", "Romantic", "Pastels"]
-  },
-  {
-    id: 3,
-    name: "Emma's Celebration",
-    style: "Rustic Elegance",
-    description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore. Wildflower meadows inspire this organic, free-flowing design aesthetic.",
-    image: "/placeholder-3.jpg",
-    tags: ["Rustic", "Organic", "Warm Tones"]
-  },
-  {
-    id: 4,
-    name: "Grace & Michael",
-    style: "Classic Luxury",
-    description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt. Rich burgundy and ivory blooms create timeless sophistication.",
-    image: "/placeholder-4.jpg",
-    tags: ["Classic", "Luxury", "Timeless"]
-  },
-  {
-    id: 5,
-    name: "Zoe's Dream",
-    style: "Bohemian Chic",
-    description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium. Pampas grass and dried florals create texture and movement.",
-    image: "/placeholder-5.jpg",
-    tags: ["Bohemian", "Textural", "Free-spirited"]
-  },
-  {
-    id: 6,
-    name: "Charlotte's Soirée",
-    style: "Urban Greenhouse",
-    description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit. Industrial elements softened with lush tropical greenery and white blooms.",
-    image: "/placeholder-6.jpg",
-    tags: ["Urban", "Tropical", "Contemporary"]
-  }
-];
+import { lookbookCollections } from '../../data/lookbook.js';
 ---
 
 <section class="py-20 bg-petal-cream">
@@ -72,54 +22,68 @@ const weddings = [
         class="flex gap-6 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory"
         style="scroll-behavior: smooth;"
       >
-        {weddings.map((wedding, index) => (
-          <div class="flex-none w-80 md:w-96 snap-start group cursor-pointer" data-wedding-id={wedding.id}>
-            <!-- Image Container -->
-            <div class="relative h-72 md:h-80 bg-gradient-to-br from-petal-stone to-petal-pearl rounded-lg overflow-hidden mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
-              <!-- Placeholder for image/video -->
-              <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-petal-eucalyptus/10 to-petal-terracotta/10">
-                <svg class="w-20 h-20 text-petal-sage/30" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
-                </svg>
-              </div>
+        {lookbookCollections.map((collection, index) => (
+          <div class="flex-none w-80 md:w-96 snap-start group cursor-pointer" data-collection-id={collection.id}>
+            <!-- 3x Mosaic Card -->
+            <div class="relative h-72 md:h-80 rounded-lg overflow-hidden mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
+              <!-- Mosaic Layout: Main image (2/3) + Two stacked images (1/3) -->
+              <div class="flex h-full">
+                <!-- Main image (left 2/3) -->
+                <div class="w-2/3 h-full relative overflow-hidden">
+                  <img
+                    src={collection.cardImages[0]}
+                    alt={`${collection.title} - Main`}
+                    class="w-full h-full object-cover"
+                  />
+                </div>
 
-              <!-- Overlay with wedding info -->
-              <div class="absolute inset-0 bg-gradient-to-t from-petal-charcoal/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                <div class="text-white">
-                  <p class="font-body text-sm uppercase tracking-wide mb-1 text-petal-peach">
-                    {wedding.style}
-                  </p>
-                  <h3 class="font-display text-xl mb-2">
-                    {wedding.name}
-                  </h3>
-                  <p class="font-body text-sm opacity-90 mb-3">
-                    {wedding.description}
-                  </p>
-                  <div class="flex flex-wrap gap-2">
-                    {wedding.tags.map(tag => (
-                      <span class="px-2 py-1 bg-white/20 rounded-full text-xs font-body">
-                        {tag}
-                      </span>
-                    ))}
+                <!-- Two stacked images (right 1/3) -->
+                <div class="w-1/3 h-full flex flex-col">
+                  <div class="h-1/2 relative overflow-hidden border-l border-b border-white/20">
+                    <img
+                      src={collection.cardImages[1]}
+                      alt={`${collection.title} - Top`}
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div class="h-1/2 relative overflow-hidden border-l border-white/20">
+                    <img
+                      src={collection.cardImages[2]}
+                      alt={`${collection.title} - Bottom`}
+                      class="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
               </div>
 
-              <!-- Play button hint for future videos -->
+              <!-- Overlay with collection info -->
+              <div class="absolute inset-0 bg-gradient-to-t from-petal-charcoal/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                <div class="text-white">
+                  <h3 class="font-display text-xl mb-2">
+                    {collection.title}
+                  </h3>
+                  <p class="font-body text-sm opacity-90">
+                    {collection.description}
+                  </p>
+                </div>
+              </div>
+
+              <!-- View button hint -->
               <div class="absolute top-4 right-4 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <svg class="w-5 h-5 text-petal-forest ml-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                <svg class="w-5 h-5 text-petal-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                 </svg>
               </div>
             </div>
 
-            <!-- Wedding Info Below -->
+            <!-- Collection Info Below -->
             <div class="px-2">
               <h3 class="font-display text-xl text-petal-charcoal mb-1">
-                {wedding.name}
+                {collection.title}
               </h3>
-              <p class="font-body text-sm text-petal-sage uppercase tracking-wide">
-                {wedding.style}
+              <p class="font-body text-sm text-petal-sage">
+                {collection.description}
               </p>
             </div>
           </div>
@@ -185,13 +149,12 @@ const weddings = [
         scrollContainer.scrollBy({ left: cardWidth, behavior: 'smooth' });
       });
 
-      // Optional: Click on cards to view more details
-      const cards = scrollContainer.querySelectorAll('[data-wedding-id]');
+      // Click on cards to view collection gallery
+      const cards = scrollContainer.querySelectorAll('[data-collection-id]');
       cards.forEach(card => {
         card.addEventListener('click', () => {
-          const weddingId = card.getAttribute('data-wedding-id');
-          // Future: Navigate to individual wedding gallery
-          console.log(`Viewing wedding ${weddingId}`);
+          const collectionId = card.getAttribute('data-collection-id');
+          window.location.href = `/lookbook/${collectionId}`;
         });
       });
     }
