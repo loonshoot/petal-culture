@@ -1,0 +1,132 @@
+---
+const faqs = {
+  "Flowers & Styling": [
+    {
+      question: "Is there a minimum order?",
+      answer: "We are passionate about what we do, and no order is too big or too small."
+    },
+    {
+      question: "Will my flowers look exactly like the photos?",
+      answer: "We use seasonal blooms if you have ordered fresh flowers, so arrangements may vary slightly. However, we always maintain the overall style, colour palette, and quality shown."
+    },
+    {
+      question: "Do you offer event styling items (arches, candles, vases, etc.)?",
+      answer: "Yes, we have a wide range of décor items available for hire alongside our floral designs."
+    }
+  ],
+  "Weddings & Events": [
+    {
+      question: "How far will the team at Petal Culture travel for my wedding or event?",
+      answer: "We will do everything possible to travel as far and wide to your chosen location, however there will be travel costs incurred which will be quoted and agreed upfront. There will be times when we reserve the right to decline a location due to vehicle and staffing restrictions."
+    },
+    {
+      question: "Do you provide wedding consultations?",
+      answer: "Yes, we offer consultations to discuss your vision, colours, and style. Bookings are essential."
+    },
+    {
+      question: "How much do wedding flowers cost?",
+      answer: "Costs vary depending on flower choices, season, and scale of the event. We provide tailored quotes after a consultation."
+    },
+    {
+      question: "Do you deliver and set up at wedding venues?",
+      answer: "Absolutely — we handle delivery, setup, and pack-down to ensure everything runs smoothly."
+    }
+  ]
+};
+---
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+      const button = item.querySelector('.faq-button');
+      const answer = item.querySelector('.faq-answer');
+      const icon = item.querySelector('.faq-icon');
+
+      button?.addEventListener('click', () => {
+        const isOpen = answer?.classList.contains('max-h-96');
+
+        // Close all other FAQs
+        faqItems.forEach(otherItem => {
+          const otherAnswer = otherItem.querySelector('.faq-answer');
+          const otherIcon = otherItem.querySelector('.faq-icon');
+          if (otherItem !== item) {
+            otherAnswer?.classList.remove('max-h-96');
+            otherAnswer?.classList.add('max-h-0');
+            otherIcon?.classList.remove('rotate-180');
+          }
+        });
+
+        // Toggle current FAQ
+        if (isOpen) {
+          answer?.classList.remove('max-h-96');
+          answer?.classList.add('max-h-0');
+          icon?.classList.remove('rotate-180');
+        } else {
+          answer?.classList.remove('max-h-0');
+          answer?.classList.add('max-h-96');
+          icon?.classList.add('rotate-180');
+        }
+      });
+    });
+  });
+</script>
+
+<section class="py-20 bg-stone-100">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="font-display text-3xl md:text-5xl text-stone-800 mb-4">
+        FAQs
+      </h2>
+      <p class="font-body text-stone-600 max-w-2xl mx-auto">
+        Your questions answered about our florals, styling, and services.
+      </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto space-y-12">
+      {Object.entries(faqs).map(([category, questions]) => (
+        <div>
+          <h3 class="font-display text-2xl text-stone-800 mb-6">
+            {category}
+          </h3>
+          <div class="space-y-2">
+            {questions.map((faq, index) => (
+              <div class="faq-item border border-stone-200 rounded-lg overflow-hidden bg-white">
+                <button
+                  class="faq-button w-full text-left p-6 hover:bg-stone-50 transition-colors focus:outline-none"
+                  type="button"
+                  aria-expanded="false"
+                >
+                  <div class="flex justify-between items-center">
+                    <h4 class="font-body font-semibold text-stone-800 pr-4">
+                      {faq.question}
+                    </h4>
+                    <svg
+                      class="faq-icon w-5 h-5 text-stone-500 transition-transform duration-200 flex-shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </div>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                  <p class="font-body text-stone-600 px-6 pt-2 pb-6">
+                    {faq.answer}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
