@@ -22,9 +22,10 @@ export default {
         }
       },
       fontFamily: {
-        'display': ['Playfair Display', 'serif'],
+        'display': ['Luckiest Guy', 'cursive'],
         'body': ['Inter', 'sans-serif'],
-        'accent': ['Cormorant Garamond', 'serif']
+        'accent': ['Cormorant Garamond', 'serif'],
+        'script': ['Wind Song', 'cursive']
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',

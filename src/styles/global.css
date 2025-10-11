@@ -1,5 +1,21 @@
 @import "tailwindcss";
 
+@utility font-display {
+  font-family: "Luckiest Guy", cursive;
+}
+
+@utility font-script {
+  font-family: "Wind Song", cursive;
+}
+
+@utility font-body {
+  font-family: "Inter", sans-serif;
+}
+
+@utility font-accent {
+  font-family: "Cormorant Garamond", serif;
+}
+
 @theme {
   --color-petal-sage: #999469;
   --color-petal-forest: #999469;
@@ -19,12 +35,24 @@
   --color-petal-circle-olive: #99996B;
   --color-petal-circle-amber: #FCB040;
 
-  --font-family-display: "Playfair Display", serif;
+  --font-family-display: "Luckiest Guy", cursive;
   --font-family-body: "Inter", sans-serif;
   --font-family-accent: "Cormorant Garamond", serif;
-  --font-family-script: "Great Vibes", cursive;
+  --font-family-script: "Wind Song", cursive;
+}
+
+.font-display {
+  font-family: "Luckiest Guy", cursive;
 }
 
 .font-script {
-  font-family: "Great Vibes", cursive;
+  font-family: "Wind Song", cursive;
+}
+
+.font-body {
+  font-family: "Inter", sans-serif;
+}
+
+.font-accent {
+  font-family: "Cormorant Garamond", serif;
 }
